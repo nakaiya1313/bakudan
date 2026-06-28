@@ -13,93 +13,103 @@
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html,body{margin:0;background:var(--bg);color:var(--ink);
-    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    overscroll-behavior:none}
+    font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;overscroll-behavior:none}
   body{min-height:100dvh;display:flex;flex-direction:column;align-items:center;
     padding:10px 8px calc(env(safe-area-inset-bottom) + 12px);gap:10px}
   .hidden{display:none !important}
 
-  .title{font-weight:800;letter-spacing:.18em;font-size:20px;color:var(--ink);
-    text-shadow:0 2px 0 #000;margin:0}
+  .title{font-weight:800;letter-spacing:.18em;font-size:20px;color:var(--ink);text-shadow:0 2px 0 #000;margin:0}
   .title b{color:var(--flag)}
 
-  .panel{width:100%;max-width:480px;background:var(--panel);
-    border:2px solid var(--panelEdge);border-radius:10px;
-    box-shadow:inset 0 1px 0 #2c3b4c, 0 6px 0 #0a0e13;padding:12px}
+  .panel{width:100%;max-width:480px;background:var(--panel);border:2px solid var(--panelEdge);
+    border-radius:10px;box-shadow:inset 0 1px 0 #2c3b4c, 0 6px 0 #0a0e13;padding:12px}
 
   /* ===== トップページ ===== */
   #home{width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:12px}
   #home .hero{text-align:center;padding:6px 0 2px}
   #home .hero .title{font-size:28px}
   #home .tag{color:var(--sub);font-size:13px;margin-top:6px;letter-spacing:.06em}
-  .rules{width:100%;background:var(--panel);border:2px solid var(--panelEdge);
-    border-radius:10px;box-shadow:0 6px 0 #0a0e13;padding:14px 14px 8px}
+  .rules{width:100%;background:var(--panel);border:2px solid var(--panelEdge);border-radius:10px;
+    box-shadow:0 6px 0 #0a0e13;padding:14px 14px 8px}
   .rules h2{margin:0 0 8px;font-size:14px;color:var(--flag);letter-spacing:.1em}
   .rules ul{margin:0;padding-left:0;list-style:none}
-  .rules li{position:relative;padding:6px 0 6px 22px;font-size:13.5px;line-height:1.5;color:#cfdae6;
-    border-bottom:1px dashed #2a3845}
+  .rules li{position:relative;padding:6px 0 6px 22px;font-size:13.5px;line-height:1.5;color:#cfdae6;border-bottom:1px dashed #2a3845}
   .rules li:last-child{border-bottom:none}
-  .rules li::before{content:"";position:absolute;left:4px;top:11px;width:8px;height:8px;
-    background:var(--flag);box-shadow:2px 2px 0 #0a0e13}
+  .rules li::before{content:"";position:absolute;left:4px;top:11px;width:8px;height:8px;background:var(--flag);box-shadow:2px 2px 0 #0a0e13}
+
+  .shapebar{width:100%;display:flex;align-items:center;gap:10px;justify-content:center;margin-top:2px}
+  .shapebar .lead{color:var(--sub);font-size:12px;letter-spacing:.06em}
+  .seg{display:flex;border:2px solid #0b1015;border-radius:8px;overflow:hidden}
+  .seg button{border:none;background:#22303d;color:var(--sub);font-weight:800;font-size:14px;padding:9px 20px;cursor:pointer;touch-action:manipulation}
+  .seg button.on{background:#3a5068;color:#fff}
+
   .startgrid{width:100%;display:flex;flex-direction:column;gap:8px}
   .startgrid .lead{color:var(--sub);font-size:12px;text-align:center;letter-spacing:.08em}
-  .startgrid button{width:100%;border:2px solid #0b1015;background:#3a5068;color:#fff;
-    font-weight:800;font-size:16px;padding:14px;border-radius:9px;cursor:pointer;
-    touch-action:manipulation;box-shadow:0 4px 0 #16202a;display:flex;
-    align-items:center;justify-content:space-between}
+  .startgrid button{width:100%;border:2px solid #0b1015;background:#3a5068;color:#fff;font-weight:800;font-size:16px;
+    padding:14px;border-radius:9px;cursor:pointer;touch-action:manipulation;box-shadow:0 4px 0 #16202a;
+    display:flex;align-items:center;justify-content:space-between}
   .startgrid button:active{transform:translateY(2px);box-shadow:0 2px 0 #16202a}
   .startgrid button small{font-weight:600;color:#cfe0ef;font-size:12px}
-  .adbox{width:100%;display:flex;align-items:center;justify-content:center;
-    background:#0c1117;border:2px solid #060a0e;border-radius:8px;padding:8px;min-height:120px}
-  .adbox .lbl{position:absolute;font-size:10px;color:#3a4a5a}
-  .adwrap{width:100%;position:relative;display:flex;justify-content:center}
+
+  .kidsbtn{width:100%;border:2px solid #0b1015;background:#2d5a3a;color:#eafff0;font-weight:800;font-size:16px;
+    padding:14px;border-radius:9px;cursor:pointer;touch-action:manipulation;box-shadow:0 4px 0 #133a22;
+    display:flex;align-items:center;justify-content:space-between}
+  .kidsbtn small{font-weight:600;color:#bfe9cd;font-size:12px}
+  .kidsbtn:active{transform:translateY(2px);box-shadow:0 2px 0 #133a22}
+
+  .adwrap{width:100%;display:flex;justify-content:center}
+  .adwrap.bottom{margin-top:8px;padding-top:10px;border-top:1px dashed #2a3845}
+  .adbox{width:100%;display:flex;align-items:center;justify-content:center;background:#0c1117;
+    border:2px solid #060a0e;border-radius:8px;padding:8px;min-height:120px;position:relative}
 
   /* ===== ゲーム画面 ===== */
+  #game{width:100%;display:flex;flex-direction:column;align-items:center;gap:10px}
   .gtop{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;gap:8px}
-  .homebtn{border:2px solid #0b1015;background:#22303d;color:var(--sub);font-weight:700;
-    font-size:13px;padding:8px 12px;border-radius:8px;cursor:pointer;touch-action:manipulation;
-    box-shadow:0 3px 0 #0a0e13}
+  .homebtn{border:2px solid #0b1015;background:#22303d;color:var(--sub);font-weight:700;font-size:13px;
+    padding:8px 12px;border-radius:8px;cursor:pointer;touch-action:manipulation;box-shadow:0 3px 0 #0a0e13}
   .homebtn:active{transform:translateY(2px);box-shadow:0 1px 0 #0a0e13}
 
-  .hud{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
-  .gauge{display:flex;align-items:center;gap:6px;background:#0c1117;
-    border:2px solid #060a0e;border-radius:8px;padding:6px 9px;min-width:84px;
-    font-family:"Courier New",monospace;font-weight:700;font-size:18px;letter-spacing:.08em}
+  .hud{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+  .gauge{display:flex;align-items:center;gap:6px;background:#0c1117;border:2px solid #060a0e;border-radius:8px;
+    padding:6px 9px;min-width:84px;font-family:"Courier New",monospace;font-weight:700;font-size:18px;letter-spacing:.08em}
   .gauge .num{color:#ff5d5d;text-shadow:0 0 6px rgba(255,80,80,.35)}
   .gauge.time .num{color:#5ad7ff;text-shadow:0 0 6px rgba(90,215,255,.35)}
 
-  .face{width:48px;height:48px;flex:0 0 48px;border:none;cursor:pointer;
-    border-radius:9px;background:linear-gradient(#56697f,#33455a);
+  .face{width:48px;height:48px;flex:0 0 48px;border:none;cursor:pointer;border-radius:9px;
+    background:linear-gradient(#56697f,#33455a);
     box-shadow:inset 0 2px 0 #74879e, inset 0 -3px 0 #223040, 0 3px 0 #0a0e13;
     display:flex;align-items:center;justify-content:center;touch-action:manipulation}
   .face:active{transform:translateY(2px);box-shadow:inset 0 2px 0 #74879e, inset 0 -1px 0 #223040,0 1px 0 #0a0e13}
 
+  .badge{text-align:center;font-size:12px;color:var(--flag);letter-spacing:.08em;margin:0 0 8px;font-weight:700}
+
   .levels{display:flex;gap:6px;margin-bottom:8px}
-  .levels button{flex:1;border:2px solid #0b1015;background:#2a3a4a;color:var(--sub);
-    font-weight:700;font-size:13px;padding:8px 4px;border-radius:7px;cursor:pointer;
-    touch-action:manipulation;box-shadow:0 3px 0 #0a0e13}
+  .levels button{flex:1;border:2px solid #0b1015;background:#2a3a4a;color:var(--sub);font-weight:700;font-size:13px;
+    padding:8px 4px;border-radius:7px;cursor:pointer;touch-action:manipulation;box-shadow:0 3px 0 #0a0e13}
   .levels button.on{background:#3a5068;color:#fff;box-shadow:0 3px 0 #16202a, inset 0 0 0 2px var(--flag)}
   .levels button:active{transform:translateY(2px);box-shadow:0 1px 0 #0a0e13}
   .levels small{display:block;font-weight:600;color:#9fb1c4;font-size:10px;margin-top:2px}
 
   .modebar{display:flex;align-items:stretch;gap:8px;margin-bottom:2px}
   .modebar .mode{display:flex;border:2px solid #0b1015;border-radius:8px;overflow:hidden;flex:1}
-  .modebar .mode button{flex:1;border:none;background:#22303d;color:var(--sub);
-    font-weight:800;font-size:14px;padding:11px 4px;cursor:pointer;touch-action:manipulation;
-    display:flex;align-items:center;justify-content:center;gap:6px}
+  .modebar .mode button{flex:1;border:none;background:#22303d;color:var(--sub);font-weight:800;font-size:14px;
+    padding:11px 4px;cursor:pointer;touch-action:manipulation;display:flex;align-items:center;justify-content:center;gap:6px}
   .modebar .mode button.on{background:#3a5068;color:#fff}
-  .resetbtn{flex:0 0 auto;border:2px solid #0b1015;background:#5a2330;color:#ffd9de;
-    font-weight:800;font-size:14px;padding:0 16px;border-radius:8px;cursor:pointer;
-    touch-action:manipulation;box-shadow:0 3px 0 #2a0d13}
+  .resetbtn{flex:0 0 auto;border:2px solid #0b1015;background:#5a2330;color:#ffd9de;font-weight:800;font-size:14px;
+    padding:0 16px;border-radius:8px;cursor:pointer;touch-action:manipulation;box-shadow:0 3px 0 #2a0d13}
   .resetbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #2a0d13}
 
+  #game.kids #levels{display:none}
+  #game.kids #mode{display:none}
+  #game.kids .resetbtn{flex:1}
+
   .boardwrap{display:flex;justify-content:center;width:100%;margin-top:8px}
-  .board{display:grid;gap:2px;background:#0b1015;padding:4px;border-radius:6px;
-    border:2px solid #060a0e;touch-action:manipulation;user-select:none;
-    box-shadow:inset 0 0 0 1px #1a232c}
-  .cell{width:var(--cs);height:var(--cs);border:none;padding:0;margin:0;
-    background:var(--cell);border-radius:3px;position:relative;cursor:pointer;
-    box-shadow:inset 0 3px 0 var(--cellHi), inset 0 -3px 0 var(--cellLo);
+  .board{display:grid;gap:2px;background:#0b1015;padding:4px;border-radius:6px;border:2px solid #060a0e;
+    touch-action:manipulation;user-select:none;box-shadow:inset 0 0 0 1px #1a232c}
+  .board.hex{display:block;position:relative;padding:0;border:0;background:transparent;box-shadow:none}
+
+  .cell{width:var(--cs);height:var(--cs);border:none;padding:0;margin:0;background:var(--cell);border-radius:3px;
+    position:relative;cursor:pointer;box-shadow:inset 0 3px 0 var(--cellHi), inset 0 -3px 0 var(--cellLo);
     display:flex;align-items:center;justify-content:center;touch-action:manipulation}
   .cell:focus-visible{outline:3px solid var(--flag);outline-offset:1px;z-index:2}
   .cell.open{background:var(--open);box-shadow:inset 0 0 0 1px var(--openEdge), inset 0 2px 3px rgba(0,0,0,.45)}
@@ -108,14 +118,19 @@
   .cell svg{display:block;width:74%;height:74%}
   .cell.num svg{width:46%;height:78%}
 
-  .result{height:20px;margin-top:10px;text-align:center;font-weight:800;
-    letter-spacing:.12em;font-size:15px;min-height:20px}
+  .cell.hex{border-radius:0;box-shadow:none;background:linear-gradient(#5e708a,#3e4e62);
+    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .cell.hex.open{background:#222d38}
+  .cell.hex.boom{background:#5a1d22}
+  .cell.hex.wrong{background:#3a2a3a}
+
+  .result{height:20px;margin-top:10px;text-align:center;font-weight:800;letter-spacing:.12em;font-size:15px;min-height:20px}
   .result.win{color:#6fff9b}
   .result.lose{color:var(--danger)}
   .best{color:var(--sub);font-size:11px;text-align:center;margin-top:2px}
 
-  .adgame{width:100%;max-width:480px;margin-top:8px;display:flex;justify-content:center;
-    align-items:center;min-height:100px;background:#0c1117;border:2px solid #060a0e;border-radius:8px;padding:6px}
+  .adgame{width:100%;max-width:480px;margin-top:8px;display:flex;justify-content:center;align-items:center;
+    min-height:100px;background:#0c1117;border:2px solid #060a0e;border-radius:8px;padding:6px}
 
   @keyframes pop{from{transform:scale(.6)}to{transform:scale(1)}}
   @keyframes shake{0%,100%{transform:translate(0,0)}20%{transform:translate(-3px,1px)}
@@ -139,16 +154,21 @@
     <h2>あそびかた</h2>
     <ul>
       <li>マスをタップして、地雷のないマスをぜんぶ開けたらクリア。</li>
-      <li>開いたマスの数字は、まわり8マスにある地雷の数です。</li>
+      <li>開いたマスの数字は、となりのマスにある地雷の数です。</li>
       <li>あやしいマスは「はた」モードに切りかえてタップすると旗を立てられます。</li>
       <li>数字のマスをタップすると、まわりの旗の数が数字と同じときだけ、のこりを一気に開けます。</li>
       <li>最初にタップしたマスは必ず安全です。</li>
-      <li>上の顔ボタン、または「リセット」で最初からやり直せます。</li>
+      <li>6角モードはとなりが6マス。キッズモードはおおきなマスでやさしく、数字を声で読み上げます。</li>
     </ul>
   </div>
 
-  <!-- 大きい広告（トップ） -->
-  <div class="adwrap"><div class="adbox" id="adHome"><span class="lbl">広告</span></div></div>
+  <div class="shapebar">
+    <span class="lead">ばんのかたち</span>
+    <div class="seg" id="shapeSeg">
+      <button data-shape="sq" class="on">四角</button>
+      <button data-shape="hex">6角</button>
+    </div>
+  </div>
 
   <div class="startgrid">
     <div class="lead">なんいどをえらんでスタート</div>
@@ -156,10 +176,15 @@
     <button data-start="mid"><span>ちゅうきゅう</span><small>12×12 ・ 地雷22</small></button>
     <button data-start="hard"><span>じょうきゅう</span><small>12×18 ・ 地雷44</small></button>
   </div>
+
+  <button class="kidsbtn" id="kidsStart"><span>キッズモード</span><small>おおきなマス ・ こえでよみあげ</small></button>
+
+  <!-- 大きい広告（最下部・ボタンと分離） -->
+  <div class="adwrap bottom"><div class="adbox" id="adHome"></div></div>
 </div>
 
 <!-- ========== ゲーム画面 ========== -->
-<div id="game" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:10px">
+<div id="game" class="hidden">
   <div class="gtop">
     <button class="homebtn" id="homeBtn">← ホーム</button>
     <div class="title" style="font-size:16px">ばく<b>たん</b>スイープ</div>
@@ -172,6 +197,8 @@
       <button class="face" id="face" title="押すとリセット" aria-label="リセット"></button>
       <div class="gauge time"><span class="num" id="timeCount">000</span></div>
     </div>
+
+    <div class="badge" id="modeBadge"></div>
 
     <div class="levels" id="levels"></div>
 
@@ -196,28 +223,25 @@
 <script>
 "use strict";
 
-/* ===== レベル定義 ===== */
+/* ===== プリセット ===== */
 var LEVELS = {
   easy: {w:9,  h:9,  m:10, label:"しょきゅう"},
   mid:  {w:12, h:12, m:22, label:"ちゅうきゅう"},
   hard: {w:12, h:18, m:44, label:"じょうきゅう"}
 };
-var BEST_KEY = "bakutan_best_v1";
+var KIDS = {w:6, h:6, m:5, label:"キッズ"};
+var BEST_KEY = "bakutan_best_v2";
 
 /* ===== 広告ID（忍者AdMax） ===== */
-var AD_BIG   = "1e9b18ab23ff0d47361192feefa02782"; // 大きい広告（トップ）
+var AD_BIG   = "1e9b18ab23ff0d47361192feefa02782"; // 大きい広告（トップ最下部）
 var AD_SMALL = "0baaf14feab8212209a4bb5cc6be1498"; // 小さい広告（ゲーム内）
 
 /* ===== ドット絵（自作） ===== */
 var DIGITS = {
-  1:["010","110","010","010","111"],
-  2:["111","001","111","100","111"],
-  3:["111","001","111","001","111"],
-  4:["101","101","111","001","001"],
-  5:["111","100","111","001","111"],
-  6:["111","100","111","101","111"],
-  7:["111","001","010","010","010"],
-  8:["111","101","111","101","111"]
+  1:["010","110","010","010","111"], 2:["111","001","111","100","111"],
+  3:["111","001","111","001","111"], 4:["101","101","111","001","001"],
+  5:["111","100","111","001","111"], 6:["111","100","111","101","111"],
+  7:["111","001","010","010","010"], 8:["111","101","111","101","111"]
 };
 var NUM_COLOR = {1:"#5ad7ff",2:"#6fff9b",3:"#ff7a8a",4:"#c69bff",5:"#ffcf5a",6:"#5af0d0",7:"#ff9f5a",8:"#e2e8f0"};
 var MINE = ["0011000","0010100","0111110","1111111","1111111","0111110","0011100"];
@@ -227,37 +251,32 @@ var FACE = {
   win: ["0000000","0110110","0110110","0000000","1000001","0111110","0000000"],
   bad: ["0000000","1010101","0100010","1010101","0000000","0111110","0000000"]
 };
-
-function dotSVG(bitmap, color){
-  var rows=bitmap.length, cols=bitmap[0].length, r="";
-  for(var y=0;y<rows;y++){
-    for(var x=0;x<cols;x++){
-      if(bitmap[y].charAt(x)==="1") r+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="'+color+'"/>';
-    }
+function dotSVG(bm, color){
+  var rows=bm.length, cols=bm[0].length, r="";
+  for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){
+    if(bm[y].charAt(x)==="1") r+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="'+color+'"/>';
   }
   return '<svg viewBox="0 0 '+cols+' '+rows+'" shape-rendering="crispEdges">'+r+'</svg>';
 }
 
-/* HUD・モードアイコン初期描画 */
 document.getElementById("mineIcon").innerHTML =
   '<span style="display:inline-flex;width:16px;height:16px">'+dotSVG(MINE,"#ff5d5d")+'</span>';
 document.getElementById("mFlag").innerHTML =
   '<span style="display:inline-flex;width:15px;height:15px">'+dotSVG(FLAG,"#ffce3a")+'</span><span>はた</span>';
 
 /* ===== 状態 ===== */
-var W,H,M, mineArr, adjArr, openArr, flagArr, started, ended, flagsUsed, openedCount, mode="dig", levelKey="easy";
+var W,H,M, mineArr, adjArr, openArr, flagArr, started, ended, flagsUsed, openedCount;
+var mode="dig", levelKey="easy", boardShape="sq", kids=false, pendingShape="sq";
+var hexCenters=[], hexW=0;
 var timer=null, secs=0;
 
-var homeEl   = document.getElementById("home");
-var gameEl   = document.getElementById("game");
-var boardEl  = document.getElementById("board");
-var faceEl   = document.getElementById("face");
-var resultEl = document.getElementById("result");
-var bestEl   = document.getElementById("best");
-var mineCountEl = document.getElementById("mineCount");
-var timeCountEl = document.getElementById("timeCount");
+var homeEl=document.getElementById("home"), gameEl=document.getElementById("game");
+var boardEl=document.getElementById("board"), faceEl=document.getElementById("face");
+var resultEl=document.getElementById("result"), bestEl=document.getElementById("best");
+var badgeEl=document.getElementById("modeBadge");
+var mineCountEl=document.getElementById("mineCount"), timeCountEl=document.getElementById("timeCount");
 
-/* レベルボタン生成（ゲーム内の切替） */
+/* ゲーム内レベル切替ボタン */
 (function(){
   var c=document.getElementById("levels");
   Object.keys(LEVELS).forEach(function(k){
@@ -272,74 +291,103 @@ var timeCountEl = document.getElementById("timeCount");
 
 function pad3(n){ n=Math.max(0,Math.min(999,n|0)); return ("00"+n).slice(-3); }
 function inBounds(x,y){ return x>=0&&x<W&&y>=0&&y<H; }
+
+/* 隣接（四角=8マス / 6角=6マス・odd-rオフセット） */
 function neighbors(i){
-  var x=i%W, y=(i/W)|0, out=[];
-  for(var dy=-1;dy<=1;dy++)for(var dx=-1;dx<=1;dx++){
-    if(dx===0&&dy===0)continue;
-    if(inBounds(x+dx,y+dy)) out.push((y+dy)*W+(x+dx));
+  var x=i%W, y=(i/W)|0, cand, out=[];
+  if(boardShape==="hex"){
+    cand = (y%2===0)
+      ? [[x-1,y],[x+1,y],[x-1,y-1],[x,y-1],[x-1,y+1],[x,y+1]]
+      : [[x-1,y],[x+1,y],[x,y-1],[x+1,y-1],[x,y+1],[x+1,y+1]];
+  } else {
+    cand=[];
+    for(var dy=-1;dy<=1;dy++)for(var dx=-1;dx<=1;dx++){ if(dx||dy) cand.push([x+dx,y+dy]); }
   }
+  for(var k=0;k<cand.length;k++){ var nx=cand[k][0], ny=cand[k][1]; if(inBounds(nx,ny)) out.push(ny*W+nx); }
   return out;
 }
 
 /* ===== 画面遷移 ===== */
-function showHome(){
-  stopTimer();
-  gameEl.classList.add("hidden");
-  homeEl.classList.remove("hidden");
-  window.scrollTo(0,0);
-}
-function startGame(k){
-  levelKey=k;
-  homeEl.classList.add("hidden");
-  gameEl.classList.remove("hidden");
+function showHome(){ stopTimer(); gameEl.classList.add("hidden"); homeEl.classList.remove("hidden"); window.scrollTo(0,0); }
+function startGame(shape, lvl, isKids){
+  kids=!!isKids; boardShape = kids? "sq" : shape; levelKey = lvl;
+  homeEl.classList.add("hidden"); gameEl.classList.remove("hidden");
   newGame();
-  injectAd("adGame", AD_SMALL, 320, 100); // 小さい広告を遅延読み込み
+  injectAd("adGame", AD_SMALL, 320, 100);
   window.scrollTo(0,0);
 }
 
 /* ===== 盤面 ===== */
+function curPreset(){ return kids? KIDS : LEVELS[levelKey]; }
+function curKey(){ return kids? "kids" : (boardShape+"_"+levelKey); }
+function curLabel(){ return kids? "キッズ" : ((boardShape==="hex"?"6角・":"")+LEVELS[levelKey].label); }
+
 function newGame(){
-  var L=LEVELS[levelKey]; W=L.w; H=L.h; M=L.m;
+  var L=curPreset(); W=L.w; H=L.h; M=L.m;
   mineArr=new Array(W*H).fill(false);
   adjArr =new Array(W*H).fill(0);
   openArr=new Array(W*H).fill(false);
   flagArr=new Array(W*H).fill(false);
   started=false; ended=false; flagsUsed=0; openedCount=0; secs=0;
+  if(kids){ mode="dig"; }
+  gameEl.classList.toggle("kids", kids);
+  badgeEl.textContent = kids? "キッズモード ・ おおきなマス＆よみあげ" : (boardShape==="hex"? "6角モード ・ となりは6マス" : "");
+  badgeEl.style.display = badgeEl.textContent? "block":"none";
+  document.querySelectorAll("#mode button").forEach(function(x){ x.classList.toggle("on", x.dataset.mode===mode); });
   stopTimer(); setFace("ok"); resultEl.textContent=""; resultEl.className="result";
   document.querySelectorAll("#levels button").forEach(function(b){ b.classList.toggle("on", b.dataset.k===levelKey); });
-  layoutBoard();
-  updateHud();
-  showBest();
+  layoutBoard(); updateHud(); showBest();
 }
 
 function layoutBoard(){
   var maxW = Math.min(window.innerWidth-24, 480);
-  var cs = Math.floor((maxW-8-(W-1)*2)/W);
-  cs = Math.max(24, Math.min(40, cs));
-  boardEl.style.setProperty("--cs", cs+"px");
-  boardEl.style.gridTemplateColumns = "repeat("+W+","+cs+"px)";
-  boardEl.className="board";
-  boardEl.innerHTML="";
-  for(var i=0;i<W*H;i++){
-    var b=document.createElement("button");
-    b.className="cell"; b.dataset.i=i; b.setAttribute("aria-label","マス");
-    boardEl.appendChild(b);
+  hexCenters=[];
+  if(boardShape==="hex"){
+    var w = Math.floor(maxW/(W+0.5));
+    w = Math.max(24, Math.min(kids?52:40, w));
+    hexW=w;
+    var hgt=Math.round(w*1.1547), vstep=Math.round(hgt*0.75), gap=2;
+    boardEl.className="board hex";
+    boardEl.style.gridTemplateColumns="";
+    boardEl.style.width=(W*w + w/2)+"px";
+    boardEl.style.height=((H-1)*vstep + hgt)+"px";
+    boardEl.innerHTML="";
+    for(var i=0;i<W*H;i++){
+      var x=i%W, y=(i/W)|0;
+      var left = x*w + (y%2? w/2:0), top = y*vstep;
+      var b=document.createElement("button");
+      b.className="cell hex"; b.dataset.i=i;
+      b.style.position="absolute";
+      b.style.left=(left+gap/2)+"px"; b.style.top=(top+gap/2)+"px";
+      b.style.width=(w-gap)+"px"; b.style.height=(hgt-gap)+"px";
+      boardEl.appendChild(b);
+      hexCenters[i]={cx:left+w/2, cy:top+hgt/2};
+    }
+  } else {
+    var cs = Math.floor((maxW-8-(W-1)*2)/W);
+    cs = Math.max(24, Math.min(kids?52:40, cs));
+    boardEl.className="board";
+    boardEl.style.width=""; boardEl.style.height="";
+    boardEl.style.setProperty("--cs", cs+"px");
+    boardEl.style.gridTemplateColumns="repeat("+W+","+cs+"px)";
+    boardEl.innerHTML="";
+    for(var i2=0;i2<W*H;i2++){
+      var b2=document.createElement("button"); b2.className="cell"; b2.dataset.i=i2; b2.setAttribute("aria-label","マス");
+      boardEl.appendChild(b2);
+    }
   }
 }
 
 function placeMines(safe){
   var safeSet={}; safeSet[safe]=1; neighbors(safe).forEach(function(n){safeSet[n]=1;});
-  var pool=[];
-  for(var i=0;i<W*H;i++){ if(!safeSet[i]) pool.push(i); }
+  var pool=[]; for(var i=0;i<W*H;i++){ if(!safeSet[i]) pool.push(i); }
   for(var n=0;n<M && pool.length;n++){
-    var j=(Math.random()*pool.length)|0;
-    var cell=pool[j]; pool[j]=pool[pool.length-1]; pool.pop();
-    mineArr[cell]=true;
+    var j=(Math.random()*pool.length)|0, cell=pool[j];
+    pool[j]=pool[pool.length-1]; pool.pop(); mineArr[cell]=true;
   }
   for(var k=0;k<W*H;k++){
     if(mineArr[k]) continue;
-    var c=0; neighbors(k).forEach(function(nb){ if(mineArr[nb]) c++; });
-    adjArr[k]=c;
+    var c=0; neighbors(k).forEach(function(nb){ if(mineArr[nb]) c++; }); adjArr[k]=c;
   }
 }
 
@@ -347,7 +395,9 @@ function placeMines(safe){
 function cellEl(i){ return boardEl.children[i]; }
 function paint(i){
   var el=cellEl(i); if(!el) return;
-  el.className="cell"; el.innerHTML="";
+  var hex = boardShape==="hex";
+  el.className="cell"+(hex?" hex":"");
+  el.innerHTML="";
   if(flagArr[i] && !openArr[i]){ el.innerHTML=dotSVG(FLAG,"#ffce3a"); return; }
   if(!openArr[i]) return;
   el.classList.add("open");
@@ -375,16 +425,18 @@ function reveal(i){
   }
   sfxReveal(); checkWin();
 }
+function digAt(i){
+  reveal(i);
+  if(kids && !ended && openArr[i] && !mineArr[i] && adjArr[i]>0) speak(String(adjArr[i]));
+}
 function toggleFlag(i){
   if(ended||openArr[i]) return;
-  flagArr[i]=!flagArr[i];
-  flagsUsed+=flagArr[i]?1:-1;
+  flagArr[i]=!flagArr[i]; flagsUsed+=flagArr[i]?1:-1;
   paint(i); updateHud(); sfxFlag();
 }
 function chord(i){
   if(ended||!openArr[i]||adjArr[i]===0) return;
-  var nb=neighbors(i), f=0;
-  nb.forEach(function(n){ if(flagArr[n]) f++; });
+  var nb=neighbors(i), f=0; nb.forEach(function(n){ if(flagArr[n]) f++; });
   if(f!==adjArr[i]) return;
   nb.forEach(function(n){ if(!flagArr[n]&&!openArr[n]) reveal(n); });
 }
@@ -396,9 +448,9 @@ function boom(hit){
     if(mineArr[i]) paint(i);
   }
   cellEl(hit).classList.add("boom");
-  boardEl.classList.add("boom");
+  if(boardShape!=="hex") boardEl.classList.add("boom");
   resultEl.textContent="ゲームオーバー"; resultEl.className="result lose";
-  sfxBoom();
+  sfxBoom(); if(kids) speak("ざんねん");
 }
 function checkWin(){
   if(openedCount === W*H - M){
@@ -406,19 +458,30 @@ function checkWin(){
     for(var i=0;i<W*H;i++){ if(mineArr[i]&&!flagArr[i]){ flagArr[i]=true; paint(i); } }
     flagsUsed=M; updateHud();
     resultEl.textContent="クリア！ "+secs+"びょう"; resultEl.className="result win";
-    saveBest(secs); showBest(); sfxWin();
+    saveBest(secs); showBest(); sfxWin(); if(kids) speak("クリア！すごい");
   }
 }
 
 /* ===== ベストタイム ===== */
 function loadBest(){ try{ return JSON.parse(localStorage.getItem(BEST_KEY))||{}; }catch(e){ return {}; } }
-function saveBest(s){ var b=loadBest(); if(b[levelKey]==null||s<b[levelKey]){ b[levelKey]=s; try{localStorage.setItem(BEST_KEY,JSON.stringify(b));}catch(e){} } }
-function showBest(){ var b=loadBest()[levelKey]; bestEl.textContent = b!=null ? ("ベスト："+b+"びょう（"+LEVELS[levelKey].label+"）") : ""; }
+function saveBest(s){ var b=loadBest(), k=curKey(); if(b[k]==null||s<b[k]){ b[k]=s; try{localStorage.setItem(BEST_KEY,JSON.stringify(b));}catch(e){} } }
+function showBest(){ var b=loadBest()[curKey()]; bestEl.textContent = b!=null ? ("ベスト："+b+"びょう（"+curLabel()+"）") : ""; }
 
-/* ===== 入力（pointer・チョード／長押し旗は廃止） ===== */
+/* ===== 入力 ===== */
 var pressIdx=-1, startX=0, startY=0;
 function cellFromEvent(e){
-  var t=e.target; while(t&&t!==boardEl&&!(t.classList&&t.classList.contains("cell"))) t=t.parentNode;
+  if(boardShape==="hex"){
+    var r=boardEl.getBoundingClientRect();
+    var px=e.clientX-r.left, py=e.clientY-r.top, best=-1, bd=1e9;
+    for(var i=0;i<hexCenters.length;i++){
+      var c=hexCenters[i]; if(!c)continue;
+      var dx=px-c.cx, dy=py-c.cy, d=dx*dx+dy*dy;
+      if(d<bd){ bd=d; best=i; }
+    }
+    return (best>=0 && bd<=hexW*hexW)? best : -1;
+  }
+  var t=e.target;
+  while(t&&t!==boardEl&&!(t.classList&&t.classList.contains("cell"))) t=t.parentNode;
   return (t&&t.classList&&t.classList.contains("cell"))? parseInt(t.dataset.i,10) : -1;
 }
 boardEl.addEventListener("pointerdown",function(e){
@@ -433,17 +496,16 @@ boardEl.addEventListener("pointermove",function(e){
 boardEl.addEventListener("pointerup",function(){
   if(pressIdx<0) return;
   var i=pressIdx; pressIdx=-1;
-  if(openArr[i]){ chord(i); }
-  else if(mode==="flag"){ toggleFlag(i); }
-  else { reveal(i); }
+  if(openArr[i]) chord(i);
+  else if(mode==="flag") toggleFlag(i);
+  else digAt(i);
 });
 boardEl.addEventListener("pointercancel",function(){ pressIdx=-1; });
 boardEl.addEventListener("contextmenu",function(e){
-  e.preventDefault();
-  var i=cellFromEvent(e); if(i>=0&&!ended) toggleFlag(i);
+  e.preventDefault(); var i=cellFromEvent(e); if(i>=0&&!ended) toggleFlag(i);
 });
 
-/* モード切替・ボタン類 */
+/* ボタン類 */
 document.getElementById("mode").addEventListener("click",function(e){
   var b=e.target.closest("button[data-mode]"); if(!b) return;
   mode=b.dataset.mode;
@@ -453,23 +515,42 @@ document.getElementById("resetBtn").addEventListener("click",newGame);
 faceEl.addEventListener("click",newGame);
 document.getElementById("homeBtn").addEventListener("click",showHome);
 
-/* トップのスタートボタン */
-document.querySelectorAll("[data-start]").forEach(function(b){
-  b.addEventListener("click",function(){ startGame(b.dataset.start); });
+/* トップ：かたち切替・スタート */
+document.getElementById("shapeSeg").addEventListener("click",function(e){
+  var b=e.target.closest("button[data-shape]"); if(!b) return;
+  pendingShape=b.dataset.shape;
+  document.querySelectorAll("#shapeSeg button").forEach(function(x){ x.classList.toggle("on", x===b); });
 });
+document.querySelectorAll("[data-start]").forEach(function(b){
+  b.addEventListener("click",function(){ startGame(pendingShape, b.dataset.start, false); });
+});
+document.getElementById("kidsStart").addEventListener("click",function(){ startGame("sq","easy",true); });
 
 window.addEventListener("resize",function(){
   if(gameEl.classList.contains("hidden")) return;
   if(boardEl.children.length){ layoutBoard(); for(var i=0;i<W*H;i++) paint(i); }
 });
 
+/* ===== 音声よみあげ（キッズ・Web Speech） ===== */
+function speak(text){
+  if(!kids) return;
+  try{
+    if(!("speechSynthesis" in window)) return;
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang="ja-JP"; u.rate=0.95; u.pitch=1.15;
+    var vs=window.speechSynthesis.getVoices();
+    for(var i=0;i<vs.length;i++){ if(/ja|Japanese/i.test(vs[i].lang)){ u.voice=vs[i]; break; } }
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+
 /* ===== 音（遅延ensureCtx・チップチューン） ===== */
 var actx=null;
 function ensureCtx(){ if(!actx){ try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} } if(actx&&actx.state==="suspended") actx.resume(); }
 function blip(freq,dur,type,vol,when){
   if(!actx) return;
-  var t=actx.currentTime+(when||0);
-  var o=actx.createOscillator(), g=actx.createGain();
+  var t=actx.currentTime+(when||0), o=actx.createOscillator(), g=actx.createGain();
   o.type=type||"square"; o.frequency.value=freq;
   g.gain.setValueAtTime(0.0001,t);
   g.gain.exponentialRampToValueAtTime(vol||0.18,t+0.01);
@@ -505,7 +586,7 @@ function injectAd(containerId, adId, w, h){
   d.close();
 }
 
-/* 起動：トップページの大広告を読み込み */
+/* 起動 */
 injectAd("adHome", AD_BIG, 300, 250);
 showHome();
 </script>
