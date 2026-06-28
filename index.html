@@ -16,29 +16,62 @@
     font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     overscroll-behavior:none}
   body{min-height:100dvh;display:flex;flex-direction:column;align-items:center;
-    padding:10px 8px calc(env(safe-area-inset-bottom) + 10px);gap:10px}
-  .title{font-weight:800;letter-spacing:.18em;font-size:18px;color:var(--ink);
-    text-shadow:0 2px 0 #000;margin:2px 0 0}
+    padding:10px 8px calc(env(safe-area-inset-bottom) + 12px);gap:10px}
+  .hidden{display:none !important}
+
+  .title{font-weight:800;letter-spacing:.18em;font-size:20px;color:var(--ink);
+    text-shadow:0 2px 0 #000;margin:0}
   .title b{color:var(--flag)}
 
   .panel{width:100%;max-width:480px;background:var(--panel);
     border:2px solid var(--panelEdge);border-radius:10px;
-    box-shadow:inset 0 1px 0 #2c3b4c, 0 6px 0 #0a0e13;padding:10px}
+    box-shadow:inset 0 1px 0 #2c3b4c, 0 6px 0 #0a0e13;padding:12px}
+
+  /* ===== トップページ ===== */
+  #home{width:100%;max-width:480px;display:flex;flex-direction:column;align-items:center;gap:12px}
+  #home .hero{text-align:center;padding:6px 0 2px}
+  #home .hero .title{font-size:28px}
+  #home .tag{color:var(--sub);font-size:13px;margin-top:6px;letter-spacing:.06em}
+  .rules{width:100%;background:var(--panel);border:2px solid var(--panelEdge);
+    border-radius:10px;box-shadow:0 6px 0 #0a0e13;padding:14px 14px 8px}
+  .rules h2{margin:0 0 8px;font-size:14px;color:var(--flag);letter-spacing:.1em}
+  .rules ul{margin:0;padding-left:0;list-style:none}
+  .rules li{position:relative;padding:6px 0 6px 22px;font-size:13.5px;line-height:1.5;color:#cfdae6;
+    border-bottom:1px dashed #2a3845}
+  .rules li:last-child{border-bottom:none}
+  .rules li::before{content:"";position:absolute;left:4px;top:11px;width:8px;height:8px;
+    background:var(--flag);box-shadow:2px 2px 0 #0a0e13}
+  .startgrid{width:100%;display:flex;flex-direction:column;gap:8px}
+  .startgrid .lead{color:var(--sub);font-size:12px;text-align:center;letter-spacing:.08em}
+  .startgrid button{width:100%;border:2px solid #0b1015;background:#3a5068;color:#fff;
+    font-weight:800;font-size:16px;padding:14px;border-radius:9px;cursor:pointer;
+    touch-action:manipulation;box-shadow:0 4px 0 #16202a;display:flex;
+    align-items:center;justify-content:space-between}
+  .startgrid button:active{transform:translateY(2px);box-shadow:0 2px 0 #16202a}
+  .startgrid button small{font-weight:600;color:#cfe0ef;font-size:12px}
+  .adbox{width:100%;display:flex;align-items:center;justify-content:center;
+    background:#0c1117;border:2px solid #060a0e;border-radius:8px;padding:8px;min-height:120px}
+  .adbox .lbl{position:absolute;font-size:10px;color:#3a4a5a}
+  .adwrap{width:100%;position:relative;display:flex;justify-content:center}
+
+  /* ===== ゲーム画面 ===== */
+  .gtop{width:100%;max-width:480px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+  .homebtn{border:2px solid #0b1015;background:#22303d;color:var(--sub);font-weight:700;
+    font-size:13px;padding:8px 12px;border-radius:8px;cursor:pointer;touch-action:manipulation;
+    box-shadow:0 3px 0 #0a0e13}
+  .homebtn:active{transform:translateY(2px);box-shadow:0 1px 0 #0a0e13}
 
   .hud{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
   .gauge{display:flex;align-items:center;gap:6px;background:#0c1117;
     border:2px solid #060a0e;border-radius:8px;padding:6px 9px;min-width:84px;
-    font-family:"Courier New",monospace;font-weight:700;font-size:18px;
-    letter-spacing:.08em}
-  .gauge .lbl{display:flex}
+    font-family:"Courier New",monospace;font-weight:700;font-size:18px;letter-spacing:.08em}
   .gauge .num{color:#ff5d5d;text-shadow:0 0 6px rgba(255,80,80,.35)}
   .gauge.time .num{color:#5ad7ff;text-shadow:0 0 6px rgba(90,215,255,.35)}
 
   .face{width:48px;height:48px;flex:0 0 48px;border:none;cursor:pointer;
     border-radius:9px;background:linear-gradient(#56697f,#33455a);
     box-shadow:inset 0 2px 0 #74879e, inset 0 -3px 0 #223040, 0 3px 0 #0a0e13;
-    display:flex;align-items:center;justify-content:center;
-    touch-action:manipulation}
+    display:flex;align-items:center;justify-content:center;touch-action:manipulation}
   .face:active{transform:translateY(2px);box-shadow:inset 0 2px 0 #74879e, inset 0 -1px 0 #223040,0 1px 0 #0a0e13}
 
   .levels{display:flex;gap:6px;margin-bottom:8px}
@@ -49,15 +82,18 @@
   .levels button:active{transform:translateY(2px);box-shadow:0 1px 0 #0a0e13}
   .levels small{display:block;font-weight:600;color:#9fb1c4;font-size:10px;margin-top:2px}
 
-  .modebar{display:flex;align-items:center;gap:8px;margin-bottom:4px}
-  .modebar .mode{display:flex;gap:0;border:2px solid #0b1015;border-radius:8px;overflow:hidden;flex:1}
+  .modebar{display:flex;align-items:stretch;gap:8px;margin-bottom:2px}
+  .modebar .mode{display:flex;border:2px solid #0b1015;border-radius:8px;overflow:hidden;flex:1}
   .modebar .mode button{flex:1;border:none;background:#22303d;color:var(--sub);
-    font-weight:800;font-size:14px;padding:9px 4px;cursor:pointer;touch-action:manipulation;
+    font-weight:800;font-size:14px;padding:11px 4px;cursor:pointer;touch-action:manipulation;
     display:flex;align-items:center;justify-content:center;gap:6px}
   .modebar .mode button.on{background:#3a5068;color:#fff}
-  .modebar .hint{color:var(--sub);font-size:11px;line-height:1.3;text-align:right;flex:0 0 auto}
+  .resetbtn{flex:0 0 auto;border:2px solid #0b1015;background:#5a2330;color:#ffd9de;
+    font-weight:800;font-size:14px;padding:0 16px;border-radius:8px;cursor:pointer;
+    touch-action:manipulation;box-shadow:0 3px 0 #2a0d13}
+  .resetbtn:active{transform:translateY(2px);box-shadow:0 1px 0 #2a0d13}
 
-  .boardwrap{display:flex;justify-content:center;width:100%}
+  .boardwrap{display:flex;justify-content:center;width:100%;margin-top:8px}
   .board{display:grid;gap:2px;background:#0b1015;padding:4px;border-radius:6px;
     border:2px solid #060a0e;touch-action:manipulation;user-select:none;
     box-shadow:inset 0 0 0 1px #1a232c}
@@ -66,20 +102,20 @@
     box-shadow:inset 0 3px 0 var(--cellHi), inset 0 -3px 0 var(--cellLo);
     display:flex;align-items:center;justify-content:center;touch-action:manipulation}
   .cell:focus-visible{outline:3px solid var(--flag);outline-offset:1px;z-index:2}
-  .cell.open{background:var(--open);
-    box-shadow:inset 0 0 0 1px var(--openEdge), inset 0 2px 3px rgba(0,0,0,.45)}
+  .cell.open{background:var(--open);box-shadow:inset 0 0 0 1px var(--openEdge), inset 0 2px 3px rgba(0,0,0,.45)}
   .cell.boom{background:#5a1d22;box-shadow:inset 0 0 0 1px #2a0d10}
   .cell.wrong{background:#3a2a3a}
   .cell svg{display:block;width:74%;height:74%}
   .cell.num svg{width:46%;height:78%}
 
-  .result{height:20px;margin-top:8px;text-align:center;font-weight:800;
+  .result{height:20px;margin-top:10px;text-align:center;font-weight:800;
     letter-spacing:.12em;font-size:15px;min-height:20px}
   .result.win{color:#6fff9b}
   .result.lose{color:var(--danger)}
   .best{color:var(--sub);font-size:11px;text-align:center;margin-top:2px}
 
-  #ad{margin-top:4px;min-height:100px;display:flex;align-items:center;justify-content:center}
+  .adgame{width:100%;max-width:480px;margin-top:8px;display:flex;justify-content:center;
+    align-items:center;min-height:100px;background:#0c1117;border:2px solid #060a0e;border-radius:8px;padding:6px}
 
   @keyframes pop{from{transform:scale(.6)}to{transform:scale(1)}}
   @keyframes shake{0%,100%{transform:translate(0,0)}20%{transform:translate(-3px,1px)}
@@ -91,12 +127,49 @@
 </style>
 </head>
 <body>
-  <div class="title">ばく<b>たん</b>スイープ</div>
+
+<!-- ========== トップページ ========== -->
+<div id="home">
+  <div class="hero">
+    <div class="title">ばく<b>たん</b>スイープ</div>
+    <div class="tag">数字をヒントに地雷をよけるドットパズル</div>
+  </div>
+
+  <div class="rules">
+    <h2>あそびかた</h2>
+    <ul>
+      <li>マスをタップして、地雷のないマスをぜんぶ開けたらクリア。</li>
+      <li>開いたマスの数字は、まわり8マスにある地雷の数です。</li>
+      <li>あやしいマスは「はた」モードに切りかえてタップすると旗を立てられます。</li>
+      <li>数字のマスをタップすると、まわりの旗の数が数字と同じときだけ、のこりを一気に開けます。</li>
+      <li>最初にタップしたマスは必ず安全です。</li>
+      <li>上の顔ボタン、または「リセット」で最初からやり直せます。</li>
+    </ul>
+  </div>
+
+  <!-- 大きい広告（トップ） -->
+  <div class="adwrap"><div class="adbox" id="adHome"><span class="lbl">広告</span></div></div>
+
+  <div class="startgrid">
+    <div class="lead">なんいどをえらんでスタート</div>
+    <button data-start="easy"><span>しょきゅう</span><small>9×9 ・ 地雷10</small></button>
+    <button data-start="mid"><span>ちゅうきゅう</span><small>12×12 ・ 地雷22</small></button>
+    <button data-start="hard"><span>じょうきゅう</span><small>12×18 ・ 地雷44</small></button>
+  </div>
+</div>
+
+<!-- ========== ゲーム画面 ========== -->
+<div id="game" class="hidden" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:10px">
+  <div class="gtop">
+    <button class="homebtn" id="homeBtn">← ホーム</button>
+    <div class="title" style="font-size:16px">ばく<b>たん</b>スイープ</div>
+    <span style="width:74px"></span>
+  </div>
 
   <div class="panel">
     <div class="hud">
-      <div class="gauge"><span class="lbl" id="mineIcon"></span><span class="num" id="mineCount">000</span></div>
-      <button class="face" id="face" aria-label="リセット"></button>
+      <div class="gauge"><span id="mineIcon"></span><span class="num" id="mineCount">000</span></div>
+      <button class="face" id="face" title="押すとリセット" aria-label="リセット"></button>
       <div class="gauge time"><span class="num" id="timeCount">000</span></div>
     </div>
 
@@ -104,10 +177,10 @@
 
     <div class="modebar">
       <div class="mode" id="mode">
-        <button data-mode="dig" class="on" id="mDig"></button>
+        <button data-mode="dig" class="on">ひらく</button>
         <button data-mode="flag" id="mFlag"></button>
       </div>
-      <div class="hint">長おしでも<br>はたを立てる</div>
+      <button class="resetbtn" id="resetBtn">リセット</button>
     </div>
   </div>
 
@@ -116,7 +189,9 @@
   <div class="result" id="result"></div>
   <div class="best" id="best"></div>
 
-  <div id="ad"></div>
+  <!-- 小さい広告（ゲーム内） -->
+  <div class="adgame" id="adGame"></div>
+</div>
 
 <script>
 "use strict";
@@ -129,8 +204,11 @@ var LEVELS = {
 };
 var BEST_KEY = "bakutan_best_v1";
 
-/* ===== ドット絵（自作・著作権フリー） =====
-   3x5の数字、7x7の地雷・旗・顔。Windows版の素材は一切使わない。 */
+/* ===== 広告ID（忍者AdMax） ===== */
+var AD_BIG   = "1e9b18ab23ff0d47361192feefa02782"; // 大きい広告（トップ）
+var AD_SMALL = "0baaf14feab8212209a4bb5cc6be1498"; // 小さい広告（ゲーム内）
+
+/* ===== ドット絵（自作） ===== */
 var DIGITS = {
   1:["010","110","010","010","111"],
   2:["111","001","111","100","111"],
@@ -142,10 +220,8 @@ var DIGITS = {
   8:["111","101","111","101","111"]
 };
 var NUM_COLOR = {1:"#5ad7ff",2:"#6fff9b",3:"#ff7a8a",4:"#c69bff",5:"#ffcf5a",6:"#5af0d0",7:"#ff9f5a",8:"#e2e8f0"};
-
 var MINE = ["0011000","0010100","0111110","1111111","1111111","0111110","0011100"];
 var FLAG = ["0000000","0011100","0011110","0011100","0010000","0010000","0111000"];
-
 var FACE = {
   ok:  ["0000000","0110110","0110110","0000000","0111110","0000000","0000000"],
   win: ["0000000","0110110","0110110","0000000","1000001","0111110","0000000"],
@@ -162,19 +238,18 @@ function dotSVG(bitmap, color){
   return '<svg viewBox="0 0 '+cols+' '+rows+'" shape-rendering="crispEdges">'+r+'</svg>';
 }
 
-/* 顔・アイコンの初期描画 */
+/* HUD・モードアイコン初期描画 */
 document.getElementById("mineIcon").innerHTML =
-  '<svg viewBox="0 0 7 7" width="16" height="16" shape-rendering="crispEdges">'+
-  MINE.map(function(row,y){var s="";for(var x=0;x<7;x++){if(row.charAt(x)==="1")s+='<rect x="'+x+'" y="'+y+'" width="1" height="1" fill="#ff5d5d"/>';}return s;}).join("")+'</svg>';
-document.getElementById("mDig").innerHTML  = dotSVGsmall(FLAG_TO_PICK(),"#fff")  + '<span>ひらく</span>';
-document.getElementById("mFlag").innerHTML = dotSVGsmall(FLAG,"#ffce3a") + '<span>はた</span>';
-function FLAG_TO_PICK(){return MINE;} // ひらく＝地雷モチーフのドット
-function dotSVGsmall(bm,color){return '<span style="display:inline-flex;width:15px;height:15px">'+dotSVG(bm,color)+'</span>';}
+  '<span style="display:inline-flex;width:16px;height:16px">'+dotSVG(MINE,"#ff5d5d")+'</span>';
+document.getElementById("mFlag").innerHTML =
+  '<span style="display:inline-flex;width:15px;height:15px">'+dotSVG(FLAG,"#ffce3a")+'</span><span>はた</span>';
 
 /* ===== 状態 ===== */
 var W,H,M, mineArr, adjArr, openArr, flagArr, started, ended, flagsUsed, openedCount, mode="dig", levelKey="easy";
 var timer=null, secs=0;
 
+var homeEl   = document.getElementById("home");
+var gameEl   = document.getElementById("game");
 var boardEl  = document.getElementById("board");
 var faceEl   = document.getElementById("face");
 var resultEl = document.getElementById("result");
@@ -182,7 +257,7 @@ var bestEl   = document.getElementById("best");
 var mineCountEl = document.getElementById("mineCount");
 var timeCountEl = document.getElementById("timeCount");
 
-/* レベルボタン生成 */
+/* レベルボタン生成（ゲーム内の切替） */
 (function(){
   var c=document.getElementById("levels");
   Object.keys(LEVELS).forEach(function(k){
@@ -196,7 +271,6 @@ var timeCountEl = document.getElementById("timeCount");
 })();
 
 function pad3(n){ n=Math.max(0,Math.min(999,n|0)); return ("00"+n).slice(-3); }
-function idx(x,y){ return y*W+x; }
 function inBounds(x,y){ return x>=0&&x<W&&y>=0&&y<H; }
 function neighbors(i){
   var x=i%W, y=(i/W)|0, out=[];
@@ -207,7 +281,23 @@ function neighbors(i){
   return out;
 }
 
-/* ===== 盤面生成 ===== */
+/* ===== 画面遷移 ===== */
+function showHome(){
+  stopTimer();
+  gameEl.classList.add("hidden");
+  homeEl.classList.remove("hidden");
+  window.scrollTo(0,0);
+}
+function startGame(k){
+  levelKey=k;
+  homeEl.classList.add("hidden");
+  gameEl.classList.remove("hidden");
+  newGame();
+  injectAd("adGame", AD_SMALL, 320, 100); // 小さい広告を遅延読み込み
+  window.scrollTo(0,0);
+}
+
+/* ===== 盤面 ===== */
 function newGame(){
   var L=LEVELS[levelKey]; W=L.w; H=L.h; M=L.m;
   mineArr=new Array(W*H).fill(false);
@@ -223,7 +313,6 @@ function newGame(){
 }
 
 function layoutBoard(){
-  // 携帯幅にセルを合わせる
   var maxW = Math.min(window.innerWidth-24, 480);
   var cs = Math.floor((maxW-8-(W-1)*2)/W);
   cs = Math.max(24, Math.min(40, cs));
@@ -242,7 +331,6 @@ function placeMines(safe){
   var safeSet={}; safeSet[safe]=1; neighbors(safe).forEach(function(n){safeSet[n]=1;});
   var pool=[];
   for(var i=0;i<W*H;i++){ if(!safeSet[i]) pool.push(i); }
-  // フィッシャー–イェーツで地雷を選ぶ
   for(var n=0;n<M && pool.length;n++){
     var j=(Math.random()*pool.length)|0;
     var cell=pool[j]; pool[j]=pool[pool.length-1]; pool.pop();
@@ -258,32 +346,26 @@ function placeMines(safe){
 /* ===== 描画 ===== */
 function cellEl(i){ return boardEl.children[i]; }
 function paint(i){
-  var el=cellEl(i);
-  el.className="cell";
-  el.innerHTML="";
+  var el=cellEl(i); if(!el) return;
+  el.className="cell"; el.innerHTML="";
   if(flagArr[i] && !openArr[i]){ el.innerHTML=dotSVG(FLAG,"#ffce3a"); return; }
   if(!openArr[i]) return;
   el.classList.add("open");
   if(mineArr[i]){ el.classList.add("boom","num"); el.innerHTML=dotSVG(MINE,"#0b0f14"); return; }
   if(adjArr[i]>0){ el.classList.add("num"); el.innerHTML=dotSVG(DIGITS[adjArr[i]],NUM_COLOR[adjArr[i]]); }
 }
-
 function setFace(s){ faceEl.innerHTML='<span style="width:26px;height:26px;display:inline-flex">'+dotSVG(FACE[s], s==="bad"?"#ff5d5d":(s==="win"?"#6fff9b":"#e2e8f0"))+'</span>'; }
-function updateHud(){
-  mineCountEl.textContent=pad3(M-flagsUsed);
-  timeCountEl.textContent=pad3(secs);
-}
+function updateHud(){ mineCountEl.textContent=pad3(M-flagsUsed); timeCountEl.textContent=pad3(secs); }
 
 /* ===== タイマー ===== */
 function startTimer(){ if(timer)return; timer=setInterval(function(){ secs=Math.min(999,secs+1); timeCountEl.textContent=pad3(secs); if(secs>=999) stopTimer(); },1000); }
 function stopTimer(){ if(timer){ clearInterval(timer); timer=null; } }
 
-/* ===== 開く・旗・コード ===== */
+/* ===== 開く・旗・チョード ===== */
 function reveal(i){
   if(ended||openArr[i]||flagArr[i]) return;
-  if(!started){ started=true; placeMines(i); startTimer(); ensureAd(); }
+  if(!started){ started=true; placeMines(i); startTimer(); }
   if(mineArr[i]){ openArr[i]=true; boom(i); return; }
-  // ゼロ連鎖を反復で展開
   var stack=[i];
   while(stack.length){
     var c=stack.pop();
@@ -291,17 +373,14 @@ function reveal(i){
     openArr[c]=true; openedCount++; paint(c);
     if(adjArr[c]===0){ neighbors(c).forEach(function(nb){ if(!openArr[nb]&&!flagArr[nb]&&!mineArr[nb]) stack.push(nb); }); }
   }
-  sfxReveal();
-  checkWin();
+  sfxReveal(); checkWin();
 }
-
 function toggleFlag(i){
   if(ended||openArr[i]) return;
   flagArr[i]=!flagArr[i];
   flagsUsed+=flagArr[i]?1:-1;
   paint(i); updateHud(); sfxFlag();
 }
-
 function chord(i){
   if(ended||!openArr[i]||adjArr[i]===0) return;
   var nb=neighbors(i), f=0;
@@ -309,7 +388,6 @@ function chord(i){
   if(f!==adjArr[i]) return;
   nb.forEach(function(n){ if(!flagArr[n]&&!openArr[n]) reveal(n); });
 }
-
 function boom(hit){
   ended=true; stopTimer(); setFace("bad");
   for(var i=0;i<W*H;i++){
@@ -322,15 +400,13 @@ function boom(hit){
   resultEl.textContent="ゲームオーバー"; resultEl.className="result lose";
   sfxBoom();
 }
-
 function checkWin(){
   if(openedCount === W*H - M){
     ended=true; stopTimer(); setFace("win");
     for(var i=0;i<W*H;i++){ if(mineArr[i]&&!flagArr[i]){ flagArr[i]=true; paint(i); } }
     flagsUsed=M; updateHud();
     resultEl.textContent="クリア！ "+secs+"びょう"; resultEl.className="result win";
-    saveBest(secs); showBest();
-    sfxWin();
+    saveBest(secs); showBest(); sfxWin();
   }
 }
 
@@ -339,49 +415,53 @@ function loadBest(){ try{ return JSON.parse(localStorage.getItem(BEST_KEY))||{};
 function saveBest(s){ var b=loadBest(); if(b[levelKey]==null||s<b[levelKey]){ b[levelKey]=s; try{localStorage.setItem(BEST_KEY,JSON.stringify(b));}catch(e){} } }
 function showBest(){ var b=loadBest()[levelKey]; bestEl.textContent = b!=null ? ("ベスト："+b+"びょう（"+LEVELS[levelKey].label+"）") : ""; }
 
-/* ===== 入力（pointer・長押し・チョード） ===== */
-var pressIdx=-1, pressTime=0, longFired=false, longTimer=null, startX=0, startY=0;
+/* ===== 入力（pointer・チョード／長押し旗は廃止） ===== */
+var pressIdx=-1, startX=0, startY=0;
 function cellFromEvent(e){
-  var t=e.target; while(t&&t!==boardEl&&!t.classList.contains("cell")) t=t.parentNode;
+  var t=e.target; while(t&&t!==boardEl&&!(t.classList&&t.classList.contains("cell"))) t=t.parentNode;
   return (t&&t.classList&&t.classList.contains("cell"))? parseInt(t.dataset.i,10) : -1;
 }
 boardEl.addEventListener("pointerdown",function(e){
   if(ended) return;
   var i=cellFromEvent(e); if(i<0) return;
-  pressIdx=i; longFired=false; startX=e.clientX; startY=e.clientY; pressTime=Date.now();
-  ensureCtx();
-  longTimer=setTimeout(function(){
-    longFired=true;
-    if(!openArr[i]){ toggleFlag(i); if(navigator.vibrate) navigator.vibrate(15); }
-  },280);
+  pressIdx=i; startX=e.clientX; startY=e.clientY; ensureCtx();
 });
 boardEl.addEventListener("pointermove",function(e){
   if(pressIdx<0) return;
-  if(Math.abs(e.clientX-startX)>10||Math.abs(e.clientY-startY)>10){ clearTimeout(longTimer); pressIdx=-1; }
+  if(Math.abs(e.clientX-startX)>10||Math.abs(e.clientY-startY)>10){ pressIdx=-1; }
 });
-boardEl.addEventListener("pointerup",function(e){
+boardEl.addEventListener("pointerup",function(){
   if(pressIdx<0) return;
-  clearTimeout(longTimer);
   var i=pressIdx; pressIdx=-1;
-  if(longFired) return;
   if(openArr[i]){ chord(i); }
   else if(mode==="flag"){ toggleFlag(i); }
   else { reveal(i); }
 });
-boardEl.addEventListener("pointercancel",function(){ clearTimeout(longTimer); pressIdx=-1; });
+boardEl.addEventListener("pointercancel",function(){ pressIdx=-1; });
 boardEl.addEventListener("contextmenu",function(e){
   e.preventDefault();
   var i=cellFromEvent(e); if(i>=0&&!ended) toggleFlag(i);
 });
 
-/* モード切替 */
+/* モード切替・ボタン類 */
 document.getElementById("mode").addEventListener("click",function(e){
   var b=e.target.closest("button[data-mode]"); if(!b) return;
   mode=b.dataset.mode;
   document.querySelectorAll("#mode button").forEach(function(x){ x.classList.toggle("on", x===b); });
 });
+document.getElementById("resetBtn").addEventListener("click",newGame);
 faceEl.addEventListener("click",newGame);
-window.addEventListener("resize",function(){ if(boardEl.children.length) layoutBoard(); for(var i=0;i<W*H;i++) paint(i); });
+document.getElementById("homeBtn").addEventListener("click",showHome);
+
+/* トップのスタートボタン */
+document.querySelectorAll("[data-start]").forEach(function(b){
+  b.addEventListener("click",function(){ startGame(b.dataset.start); });
+});
+
+window.addEventListener("resize",function(){
+  if(gameEl.classList.contains("hidden")) return;
+  if(boardEl.children.length){ layoutBoard(); for(var i=0;i<W*H;i++) paint(i); }
+});
 
 /* ===== 音（遅延ensureCtx・チップチューン） ===== */
 var actx=null;
@@ -410,25 +490,24 @@ function sfxFlag(){ blip(880,0.04,"triangle",0.16); blip(1180,0.05,"triangle",0.
 function sfxBoom(){ noise(0.5,0.35); blip(90,0.45,"sawtooth",0.22); }
 function sfxWin(){ [523,659,784,1046].forEach(function(f,k){ blip(f,0.18,"square",0.16,k*0.09); }); }
 
-/* ===== 忍者AdMax（iframe隔離・遅延読み込み） =====
-   ↓のADID を自分の忍者AdMaxの広告IDに置き換えてください。 */
-var ADID = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-function ensureAd(){
-  var c=document.getElementById("ad");
+/* ===== 忍者AdMax（iframe隔離・遅延読み込み） ===== */
+function injectAd(containerId, adId, w, h){
+  var c=document.getElementById(containerId);
   if(!c||c.dataset.adDone) return;
   c.dataset.adDone="1";
   var ifr=document.createElement("iframe");
   ifr.scrolling="no"; ifr.frameBorder="0";
-  ifr.style.cssText="border:0;width:300px;height:100px;display:block;margin:0 auto;overflow:hidden";
-  c.appendChild(ifr);
+  ifr.style.cssText="border:0;width:"+w+"px;height:"+h+"px;display:block;margin:0 auto;overflow:hidden";
+  c.innerHTML=""; c.appendChild(ifr);
   var d=ifr.contentDocument||ifr.contentWindow.document;
   d.open();
-  d.write('<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0}</style></head><body><script src="https://adm.shinobi.jp/s/'+ADID+'"><\/script></body></html>');
+  d.write('<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0}</style></head><body><script src="https://adm.shinobi.jp/s/'+adId+'"><\/script></body></html>');
   d.close();
 }
 
-/* 起動 */
-newGame();
+/* 起動：トップページの大広告を読み込み */
+injectAd("adHome", AD_BIG, 300, 250);
+showHome();
 </script>
 </body>
 </html>
